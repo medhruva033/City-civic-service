@@ -1,0 +1,361 @@
+
+/* ==========================================
+   CITY CIVIC SERVICE - LIQUID GLASS UI
+========================================== */
+
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.42);
+  --glass-border: rgba(255, 255, 255, 0.75);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.10);
+  --glass-blur: blur(22px);
+  --glass-radius: 20px;
+  --glass-transition: 0.3s ease;
+
+  --primary-green: #176b54;
+  --accent-blue: #4b6eff;
+}
+
+/* ==========================================
+   1. GLOBAL BACKGROUND
+========================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(
+      circle at 10% 15%,
+      rgba(75, 110, 255, 0.16),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(0, 200, 255, 0.12),
+      transparent 35%
+    ),
+    linear-gradient(135deg, #f4f7ff, #e9efff);
+
+  background-attachment: fixed;
+}
+
+/* ==========================================
+   2. GLOBAL GLASS SURFACES
+========================================== */
+
+.card,
+.dashboard-card,
+.stat-card,
+.panel,
+.modal,
+.sidebar {
+  background: var(--glass-bg);
+
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius);
+
+  box-shadow: var(--glass-shadow);
+
+  transition: var(--glass-transition);
+}
+
+.card:hover,
+.dashboard-card:hover,
+.stat-card:hover {
+  transform: translateY(-5px) scale(1.015);
+
+  box-shadow:
+    0 16px 40px rgba(35, 65, 150, 0.15);
+}
+
+/* ==========================================
+   3. LIQUID GLASS NAVBAR
+========================================== */
+
+.home-navbar {
+  background: rgba(255, 255, 255, 0.68) !important;
+
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.65);
+
+  box-shadow:
+    0 8px 30px rgba(30, 55, 100, 0.10);
+
+  transition: var(--glass-transition);
+}
+
+.home-nav-links a {
+  transition: all 0.3s ease;
+}
+
+.home-nav-links a:hover {
+  color: #168568;
+  transform: translateY(-2px);
+}
+
+.home-login:hover {
+  transform: translateY(-2px) scale(1.05);
+
+  box-shadow:
+    0 8px 20px rgba(23, 107, 84, 0.25);
+}
+
+/* ==========================================
+   4. HOME SERVICE GLASS CARDS
+========================================== */
+
+.home-service-card {
+  position: relative;
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.42);
+
+  backdrop-filter: blur(22px) saturate(160%);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 20px;
+
+  box-shadow:
+    0 8px 30px rgba(50, 80, 150, 0.07),
+    inset 0 1px 1px rgba(255, 255, 255, 0.8);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.home-service-card:hover {
+  transform: translateY(-9px) scale(1.025);
+
+  background: rgba(255, 255, 255, 0.68);
+
+  border-color: rgba(255, 255, 255, 0.95);
+
+  box-shadow:
+    0 20px 45px rgba(40, 75, 150, 0.15),
+    inset 0 1px 2px rgba(255, 255, 255, 0.95);
+}
+
+/* Service icons */
+
+.home-service-icon {
+  background: rgba(220, 245, 232, 0.75);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.8);
+
+  box-shadow:
+    0 4px 12px rgba(23, 107, 84, 0.08);
+
+  transition: transform 0.35s ease;
+}
+
+.home-service-card:hover .home-service-icon {
+  transform: scale(1.12) rotate(-5deg);
+}
+
+/* Service links */
+
+.home-service-card a {
+  transition: gap 0.3s ease;
+}
+
+.home-service-card:hover a {
+  gap: 12px;
+}
+
+/* ==========================================
+   5. GLOBAL BUTTON INTERACTIONS
+========================================== */
+
+button,
+.btn,
+a,
+[role="button"] {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+/* Hover zoom */
+
+button:hover,
+.btn:hover,
+a:hover,
+[role="button"]:hover {
+  transform: translateY(-2px) scale(1.035);
+  filter: brightness(1.04);
+}
+
+/* Click press */
+
+button:active,
+.btn:active,
+a:active,
+[role="button"]:active {
+  transform: scale(0.96);
+}
+
+/* ==========================================
+   6. WATER RIPPLE ANIMATION
+========================================== */
+
+.liquid-ripple {
+  position: absolute;
+
+  display: block;
+
+  border-radius: 50%;
+  pointer-events: none;
+
+  z-index: 10;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.65) 0%,
+      rgba(22, 133, 104, 0.25) 55%,
+      rgba(255, 255, 255, 0.05) 100%
+    );
+
+  transform: scale(0);
+
+  animation:
+    water-ripple 700ms ease-out forwards;
+}
+
+@keyframes water-ripple {
+  0% {
+    transform: scale(0);
+    opacity: 0.85;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+/* ==========================================
+   7. INPUT GLASS FOCUS
+========================================== */
+
+input,
+select,
+textarea {
+  transition: var(--glass-transition);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+
+  box-shadow:
+    0 0 0 4px rgba(75, 110, 255, 0.15);
+
+  transform: scale(1.01);
+}
+
+/* ==========================================
+   8. SMOOTH LINKS
+========================================== */
+
+a {
+  transition:
+    color 0.25s ease,
+    opacity 0.25s ease;
+}
+
+/* ==========================================
+   9. RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 768px) {
+  .home-service-card:hover {
+    transform: translateY(-4px);
+  }
+
+  button:hover,
+  .btn:hover,
+  a:hover {
+    transform: translateY(-1px);
+  }
+}
+
+/* ==========================================
+   10. ACCESSIBILITY
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .liquid-ripple {
+    display: none;
+  }
+}
+
+
+
+/* ==========================================
+   BUTTON HOVER FIX
+========================================== */
+
+.home-hero-actions a,
+.home-login,
+button,
+.btn,
+a[role="button"] {
+  transform-origin: center center !important;
+
+  transition:
+    transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.3s ease,
+    filter 0.3s ease !important;
+}
+
+.home-hero-actions a:hover,
+.home-login:hover,
+button:hover,
+.btn:hover,
+a[role="button"]:hover {
+  transform: translateY(-3px) scale(1.08) !important;
+
+  box-shadow:
+    0 12px 28px rgba(23, 107, 84, 0.28) !important;
+
+  filter: brightness(1.06);
+}
+
+.home-hero-actions a:active,
+.home-login:active,
+button:active,
+.btn:active,
+a[role="button"]:active {
+  transform: scale(0.96) !important;
+}
